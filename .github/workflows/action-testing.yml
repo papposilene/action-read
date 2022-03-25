@@ -1,14 +1,13 @@
 on:
   issues:
-    types: 
-      - opened
+    types:
       - labeled
 
 jobs:
   update_library:
     runs-on: macOS-latest
     name: AddReadBook
-    # only continue if issue has "book-read" label
+    # only continue if issue has "testing" label
     if: contains( github.event.issue.labels.*.name, 'testing')
     steps:
       - name: Debug action
@@ -18,7 +17,7 @@ jobs:
       - name: AddReadBook
         uses: ./
       - name: Download the book thumbnail
-        run: curl "${{ env.BookThumb }}" -o "img/${{ env.BookThumbOutput }}"
+        run: curl "${{ env.BookThumb }}" -o "data/img/${{ env.BookThumbOutput }}"
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
