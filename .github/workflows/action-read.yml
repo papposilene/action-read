@@ -16,6 +16,7 @@ jobs:
         uses: ./
       - name: Download the book thumbnail
         run: curl "${{ env.BookThumb }}" -o "data/img/${{ env.BookThumbOutput }}"
+        continue-on-error: true
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
