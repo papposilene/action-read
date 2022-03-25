@@ -1,13 +1,15 @@
 # read-action
 
-![Test](https://github.com/papposilene/read-action/workflows/Test/badge.svg?branch=main)
+![Test](https://github.com/papposilene/action-read/workflows/Test/badge.svg?branch=main)
 
-![.github/workflows/read.yml](https://github.com/papposilene/read-action/workflows/.github/workflows/read.yml/badge.svg)
+![.github/workflows/read.yml](https://github.com/papposilene/action-read/workflows/.github/workflows/read.yml/badge.svg)
+
+This Github action is based on the [read-action](https://github.com/katydecorah/read-action).
 
 This GitHub action tracks the books that you read by updating a JSON file in your repository. Pair it with
 the [iOS Shortcut](shortcut/README.md) to automatically format and open the GitHub issue.
 
-Create a new issue with the book's ISBN in the title. The action will then fetch the book's metadata
+Create a new issue with the book's ISBN in the title and a ’book-read’ label. The action will then fetch the book's metadata
 using [node-isbn](https://www.npmjs.com/package/node-isbn) and commit the change in your repository, always sorting by
 the date you finished the book.
 
