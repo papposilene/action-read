@@ -20,7 +20,8 @@ To use this action, create a new workflow in `.github/workflows` and modify it a
 ```yml
 on:
   issues:
-    types: opened
+    types:
+      - labeled
 
 jobs:
   update_library:
@@ -34,12 +35,12 @@ jobs:
       - name: AddReadBook
         uses: papposilene/action-read@v1.3.2
       - name: Download the book thumbnail
-        run: curl "${{ env.BookThumb }}" -o "img/${{ env.BookThumbOutput }}"
+        run: curl "${{ env.BookThumb }}" -o "data/img/${{ env.BookThumbOutput }}"
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add -A && git commit -m "Add ${{ env.BookTitle }} to data/read.json"
+          git add -A && git commit -m "Add ${{ env.BookTitle }} to `data/read.json`."
           git push
       - name: Close issue
         uses: peter-evans/close-issue@v1
@@ -52,7 +53,7 @@ jobs:
 
 - `readFileName`: The file where you want to save your books. Default: `data/read.json`.
 
-- `providers`: Specify the [ISBN providers](https://github.com/palmerabollo/node-isbn#setting-backend-providers) that you want to use, in the order you need them to be invoked. If setting more than one provider, separate each with a comma.
+- `providers`: Specify the [ISBN providers](https://github.com/palmerabollo/node-isbn#setting-backend-providers) that you want to use, in the order you need them to be invoked. If setting more than one provider, separate each with a comma. Default: `worldcat,openlibrary,google`.
 
 <!-- END GENERATED DOCUMENTATION -->
 
