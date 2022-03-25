@@ -26,7 +26,7 @@ describe("addBook", () => {
         expect(exportVariable).toHaveBeenNthCalledWith(
             1,
             "BookThumbOutput",
-            "book-0525658181.png"
+            "book-0525658181"
         );
         expect(exportVariable).toHaveBeenNthCalledWith(
             2,
@@ -56,7 +56,7 @@ describe("addBook", () => {
         expect(exportVariable).not.toHaveBeenNthCalledWith(
             1,
             "BookThumbOutput",
-            "book-0525658181.png"
+            "book-0525658181"
         );
         expect(exportVariable).not.toHaveBeenNthCalledWith(
             2,
