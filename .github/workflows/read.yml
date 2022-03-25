@@ -9,6 +9,7 @@ jobs:
     # only continue if issue has "book-read" label
     if: contains( github.event.issue.labels.*.name, 'book-read')
     steps:
+      - uses: hmarr/debug-action@v2
       - name: Checkout
         uses: actions/checkout@v3
       - name: AddReadBook
