@@ -1,4 +1,4 @@
-name: Read
+name: AddReadBook
 description: Looks up books information given an issue with the title of an ISBN.
 runs:
   using: node16
