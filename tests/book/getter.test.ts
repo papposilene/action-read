@@ -1,9 +1,8 @@
-/**
 import getBook from "../../src/book/getter";
 import { exportVariable } from "@actions/core";
 import { promises, readFileSync } from "fs";
-import book from "../fixture.json";
 import isbn from "node-isbn";
+import book from "../fixture.json";
 
 const books = readFileSync("./data/read.json", "utf-8");
 const date = "2020-09-12";
@@ -51,4 +50,3 @@ describe("getBook", () => {
         ).rejects.toMatchInlineSnapshot(`[Error: Error!]`);
     });
 });
-*/

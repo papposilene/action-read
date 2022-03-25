@@ -12,7 +12,6 @@ it("cleanBook", () =>
                 bookIsbn: "0525658181",
                 providers: []
             },
-
             book
         )
     ).toMatchSnapshot());

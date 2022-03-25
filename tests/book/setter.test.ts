@@ -1,8 +1,7 @@
-/**
 import addBook from "../../src/book/setter";
 import {promises, readFileSync} from "fs";
-import book from "../fixture.json";
 import {exportVariable} from "@actions/core";
+import book from "../fixture.json";
 
 const books = readFileSync("./data/read.json", "utf-8");
 const date = "2020-09-12";
@@ -46,7 +45,6 @@ describe("addBook (JSON)", () => {
                     bookIsbn: "0525658181",
                     providers: []
                 },
-
                 {
                     ...book,
                     imageLinks: {}
@@ -68,7 +66,7 @@ describe("addBook (JSON)", () => {
     });
 
     test("works, empty file", async () => {
-        jest.spyOn(promises, "readFile").mockResolvedValueOnce("");
+        jest.spyOn(promises, "readFile").mockResolvedValueOnce("[]");
         expect(
             await addBook(
                 {
@@ -77,11 +75,9 @@ describe("addBook (JSON)", () => {
                     bookIsbn: "0525658181",
                     providers: []
                 },
-
                 book,
                 "data/read.json"
             )
         ).toMatchSnapshot();
     });
 });
-*/

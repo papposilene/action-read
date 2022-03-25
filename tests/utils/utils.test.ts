@@ -1,4 +1,3 @@
-/**
 import { promises, readFileSync } from "fs";
 import {
     removeWrappedQuotes,
@@ -11,10 +10,9 @@ import book from "../fixture.json";
 import addBook from "../../src/book/setter";
 
 const books = readFileSync("./data/read.json", "utf-8");
+const date = "2022-02-22";
 
 jest.mock("@actions/core");
-
-const date = "2022-02-22";
 
 it("to Json", async () => {
     jest.spyOn(promises, "readFile").mockResolvedValueOnce(books);
@@ -71,4 +69,3 @@ it("sortByDate", () => {
         { dateFinished: "2020-11-01" }
     ]);
 });
-*/
