@@ -1,8 +1,10 @@
 # read-action
 
-![Test](https://github.com/papposilene/action-read/workflows/Test/badge.svg?branch=main)
+![.github/workflows/test.yml](https://github.com/papposilene/action-read/.github/workflows/test.yml/badge.svg?branch=main)
 
-![.github/workflows/action-read.yml](https://github.com/papposilene/action-read/workflows/.github/workflows/action-read.yml/badge.svg)
+![.github/workflows/action-testing.yml](https://github.com/papposilene/action-read/.github/workflows/action-testing.yml/badge.svg)
+
+![.github/workflows/action-read.yml](https://github.com/papposilene/action-read/.github/workflows/action-read.yml/badge.svg)
 
 This Github action is based on the [read-action](https://github.com/katydecorah/read-action).
 
