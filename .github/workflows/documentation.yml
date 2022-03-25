@@ -17,7 +17,7 @@ jobs:
       - name: Documentation action
         uses: katydecorah/documentation-action@v0.1.0
         with:
-          exampleWorkflowFile: "read.json"
+          exampleWorkflowFile: "read.yml"
       - name: Commit files
         if: env.UpdateDocumentation == 'true'
         run: |
