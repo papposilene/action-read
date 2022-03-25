@@ -8,7 +8,7 @@ const date = "2020-09-12";
 
 jest.mock("@actions/core");
 
-describe("addBook (JSON)", () => {
+describe("addBook", () => {
     test("works", async () => {
         jest.spyOn(promises, "readFile").mockResolvedValueOnce(books);
         expect(

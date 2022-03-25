@@ -15,7 +15,7 @@ export default async function addBook(
     const newBook: CleanBook = cleanBook(options, book);
     // export book thumbnail to download later
     if (newBook.imageLinks && newBook.imageLinks.thumbnail) {
-        exportVariable("BookThumbOutput", `book-${newBook.isbn}.png`);
+        exportVariable("BookThumbOutput", `book-${newBook.isbn}`);
         exportVariable("BookThumb", newBook.imageLinks.thumbnail);
     }
     // append new book
