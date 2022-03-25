@@ -4,7 +4,7 @@ import { promises, readFileSync } from "fs";
 import isbn from "node-isbn";
 import book from "../fixture.json";
 
-const books = readFileSync("./data/read.json", "utf-8");
+const books = readFileSync("./data/read.testing.json", "utf-8");
 const date = "2020-09-12";
 
 jest.mock("@actions/core");
@@ -15,7 +15,7 @@ describe("getBook", () => {
         jest.spyOn(promises, "readFile").mockResolvedValueOnce(books);
         await getBook(
             { date, bookIsbn: "9780525658184", providers: ["google"] },
-            "./data/read.json"
+            "./data/read.testing.json"
         );
         expect(exportVariable).toHaveBeenNthCalledWith(
             1,
@@ -36,7 +36,7 @@ describe("getBook", () => {
         expect(
             await getBook(
                 { date, bookIsbn: "9780525658184", providers: ["google"] },
-                "./data/read.json"
+                "./data/read.testing.json"
             )
         ).toMatchSnapshot();
     });
@@ -45,7 +45,7 @@ describe("getBook", () => {
         await expect(
             getBook(
                 { date, bookIsbn: "9780525658184", providers: ["google"] },
-                "./data/read.json"
+                "./data/read.testing.json"
             )
         ).rejects.toMatchInlineSnapshot(`[Error: Error!]`);
     });

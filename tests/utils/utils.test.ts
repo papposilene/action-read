@@ -9,7 +9,7 @@ import {
 import book from "../fixture.json";
 import addBook from "../../src/book/setter";
 
-const books = readFileSync("./data/read.json", "utf-8");
+const books = readFileSync("./data/read.testing.json", "utf-8");
 const date = "2022-02-22";
 
 jest.mock("@actions/core");
@@ -27,7 +27,7 @@ it("to Json", async () => {
                 },
 
                 book,
-                "./data/read.json"
+                "./data/read.testing.json"
             )
         )
     ).toMatchSnapshot();

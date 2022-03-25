@@ -3,7 +3,7 @@ import { promises, readFileSync } from "fs";
 import returnWriteFile from "../../src/file/writer";
 import { CleanBook } from "../../src/book/cleaner";
 
-const booksJson = JSON.parse(readFileSync("./data/read.json", "utf-8")) as CleanBook[];
+const booksJson = JSON.parse(readFileSync("./data/read.testing.json", "utf-8")) as CleanBook[];
 
 jest.mock("@actions/core");
 

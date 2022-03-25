@@ -3,7 +3,7 @@ import {promises, readFileSync} from "fs";
 import {exportVariable} from "@actions/core";
 import book from "../fixture.json";
 
-const books = readFileSync("./data/read.json", "utf-8");
+const books = readFileSync("./data/read.testing.json", "utf-8");
 const date = "2020-09-12";
 
 jest.mock("@actions/core");
@@ -20,7 +20,7 @@ describe("addBook", () => {
                     providers: []
                 },
                 book,
-                "data/read.json"
+                "data/read.testing.json"
             )
         ).toMatchSnapshot();
         expect(exportVariable).toHaveBeenNthCalledWith(
@@ -50,7 +50,7 @@ describe("addBook", () => {
                     imageLinks: {}
                 },
 
-                "data/read.json"
+                "data/read.testing.json"
             )
         ).toMatchSnapshot();
         expect(exportVariable).not.toHaveBeenNthCalledWith(
@@ -76,7 +76,7 @@ describe("addBook", () => {
                     providers: []
                 },
                 book,
-                "data/read.json"
+                "data/read.testing.json"
             )
         ).toMatchSnapshot();
     });
