@@ -21,7 +21,7 @@ To use this action, create a new workflow in `.github/workflows` and modify it a
 on:
   issues:
     types:
-      - labeled
+      - opened
 
 jobs:
   update_library:
