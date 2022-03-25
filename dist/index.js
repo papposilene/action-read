@@ -13203,7 +13203,7 @@ function getBook(options, fileName) {
     });
 }
 
-;// CONCATENATED MODULE: ./src/book/parser.ts
+;// CONCATENATED MODULE: ./src/utils/parser.ts
 
 
 function parseTitle(title) {

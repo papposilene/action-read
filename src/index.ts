@@ -6,7 +6,7 @@ import isbn from "node-isbn";
 import {CleanBook} from "./book/cleaner";
 import returnWriteFile from "./file/writer";
 import getBook from "./book/getter";
-import parseTitle from "./book/parser";
+import parseTitle from "./utils/parser";
 
 async function read() {
     try {
