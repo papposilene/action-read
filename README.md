@@ -19,42 +19,40 @@ To use this action, create a new workflow in `.github/workflows` and modify it a
 
 ```yml
 on:
-    issues:
-        types: opened
+  issues:
+    types: opened
 
 jobs:
-    update_library:
-        runs-on: macOS-latest
-        name: Read
-        # only continue if issue has "read" label
-        if: contains( github.event.issue.labels.*.name, 'read')
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
-            -   name: Read
-                uses: katydecorah/read-action@v3.0.1
-            -   name: Download the book thumbnail
-                run: curl "${{ env.BookThumb }}" -o "img/${{ env.BookThumbOutput }}"
-            -   name: Commit files
-                run: |
-                    git config --local user.email "action@github.com"
-                    git config --local user.name "GitHub Action"
-                    git add -A && git commit -m "Add ${{ env.BookTitle }} to _data/read.yml"
-                    git push
-            -   name: Close issue
-                uses: peter-evans/close-issue@v1
-                with:
-                    issue-number: "${{ env.IssueNumber }}"
-                    comment: "📚 You read ${{ env.BookTitle }} on ${{env.DateRead}}."
+  update_library:
+    runs-on: macOS-latest
+    name: AddReadBook
+    # only continue if issue has "book-read" label
+    if: contains( github.event.issue.labels.*.name, 'book-read')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: AddReadBook
+        uses: papposilene/action-read@v1.3.2
+      - name: Download the book thumbnail
+        run: curl "${{ env.BookThumb }}" -o "img/${{ env.BookThumbOutput }}"
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "Add ${{ env.BookTitle }} to data/read.json"
+          git push
+      - name: Close issue
+        uses: peter-evans/close-issue@v1
+        with:
+          issue-number: "${{ env.IssueNumber }}"
+          comment: "You read ${{ env.BookTitle }} on ${{env.DateRead}}. What will be your next book?"
 ```
 
 ## Action options
 
-- `readFileName`: The file where you want to save your books. Default: `_data/read.yml`.
+- `readFileName`: The file where you want to save your books. Default: `data/read.json`.
 
-- `providers`: Specify the [ISBN providers](https://github.com/palmerabollo/node-isbn#setting-backend-providers) that
-  you want to use, in the order you need them to be invoked. If setting more than one provider, separate each with a
-  comma.
+- `providers`: Specify the [ISBN providers](https://github.com/palmerabollo/node-isbn#setting-backend-providers) that you want to use, in the order you need them to be invoked. If setting more than one provider, separate each with a comma.
 
 <!-- END GENERATED DOCUMENTATION -->
 
