@@ -27,11 +27,11 @@ jobs:
     runs-on: macOS-latest
     name: Read
     # only continue if issue has "read" label
-    if: contains( github.event.issue.labels.*.name, 'read')
+    if: contains( github.event.issue.labels.*.name, 'book-read')
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Read
+      - name: AddReadBook
         uses: papposilene/action-read@v1.2.11
       - name: Download the book thumbnail
         run: curl "${{ env.BookThumb }}" -o "img/${{ env.BookThumbOutput }}"
