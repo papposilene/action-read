@@ -21,7 +21,7 @@ To use this action, create a new workflow in `.github/workflows` and modify it a
 on:
   issues:
     types:
-      - opened
+      - labeled
 
 jobs:
   update_library:
@@ -36,6 +36,7 @@ jobs:
         uses: papposilene/action-read@v1.3.2
       - name: Download the book thumbnail
         run: curl "${{ env.BookThumb }}" -o "data/img/${{ env.BookThumbOutput }}"
+        continue-on-error: true
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
