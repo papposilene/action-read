@@ -1,0 +1,32 @@
+on:
+  issues:
+    types: 
+      - opened
+      - labeled
+
+jobs:
+  update_library:
+    runs-on: macOS-latest
+    name: AddReadBook
+    # only continue if issue has "book-read" label
+    if: contains( github.event.issue.labels.*.name, 'testing')
+    steps:
+      - name: Debug action
+        uses: hmarr/debug-action@v2.0.1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: AddReadBook
+        uses: ./action.yml
+      - name: Download the book thumbnail
+        run: curl "${{ env.BookThumb }}" -o "img/${{ env.BookThumbOutput }}"
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "Add ${{ env.BookTitle }} to `data/read.json`."
+          git push
+      - name: Close issue
+        uses: peter-evans/close-issue@v1
+        with:
+          issue-number: "${{ env.IssueNumber }}"
+          comment: "You read ${{ env.BookTitle }} on ${{env.DateRead}}. What will be your next book?"
