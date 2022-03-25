@@ -25,7 +25,7 @@ on:
 jobs:
   update_library:
     runs-on: macOS-latest
-    name: Read
+    name: AddReadBook
     # only continue if issue has "read" label
     if: contains( github.event.issue.labels.*.name, 'book-read')
     steps:
