@@ -1,6 +1,6 @@
 {
   "name": "read-action",
-  "version": "1.2.8",
+  "version": "1.2.11",
   "description": "This GitHub action tracks the books that you've read by updating the `data/read.json` file in your repository.",
   "keywords": [
     "library",
@@ -33,7 +33,8 @@
   },
   "scripts": {
     "pretest": "eslint . --ext .js,.ts",
-    "test": "jest --coverage",
+    "test": "jest --errorOnDeprecated",
+    "tests": "jest --coverage --errorOnDeprecated",
     "build": "ncc build src/index.ts",
     "pretty-quick": "pretty-quick"
   },
