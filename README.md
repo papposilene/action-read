@@ -48,7 +48,7 @@ jobs:
           git add -A && git commit -m "Add ${{ env.BookTitle }} to data/read.json."
           git push
       - name: Close issue
-        uses: peter-evans/close-issue@v1
+        uses: peter-evans/close-issue@v2
         with:
           issue-number: "${{ env.IssueNumber }}"
           comment: "You read ${{ env.BookTitle }} on ${{env.DateRead}}. What will be your next book?"
