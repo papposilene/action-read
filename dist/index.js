@@ -13167,7 +13167,7 @@ function addBook(options, book, fileName) {
         const newBook = cleanBook(options, book);
         // export book thumbnail to download later
         if (newBook.imageLinks && newBook.imageLinks.thumbnail) {
-            (0,core.exportVariable)("BookThumbOutput", `book-${newBook.isbn}`);
+            (0,core.exportVariable)("BookThumbOutput", `book-${newBook.isbn}.png`);
             (0,core.exportVariable)("BookThumb", newBook.imageLinks.thumbnail);
         }
         // append new book
