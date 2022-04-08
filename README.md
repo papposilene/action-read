@@ -6,7 +6,7 @@
 
 ![.github/workflows/action-read.yml](https://github.com/papposilene/action-read/workflows/.github/workflows/action-read.yml/badge.svg)
 
-This Github action is based on the [read-action](https://github.com/katydecorah/read-action).
+This Github action is based on the [read-action](https://github.com/katydecorah/read-action) by @katydecorah.
 
 This GitHub action tracks the books that you read by updating a JSON file in your repository. Pair it with
 the [iOS Shortcut](shortcut/README.md) to automatically format and open the GitHub issue.
