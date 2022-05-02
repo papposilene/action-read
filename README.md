@@ -58,7 +58,7 @@ jobs:
 
 - `readFileName`: The file where you want to save your books. Default: `data/read.json`.
 
-- `providers`: Specify the [ISBN providers](https://github.com/palmerabollo/node-isbn#setting-backend-providers) that you want to use, in the order you need them to be invoked. If setting more than one provider, separate each with a comma. Default: `worldcat,openlibrary,google`.
+- `providers`: Specify the [ISBN providers](https://github.com/palmerabollo/node-isbn#setting-backend-providers) that you want to use, in the order you need them to be invoked. If setting more than one provider, separate each with a comma. Default: `google,worldcat,openlibrary`.
 
 <!-- END GENERATED DOCUMENTATION -->
 
